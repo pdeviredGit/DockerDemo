@@ -5,13 +5,13 @@ services:
     container_name: registry
     restart: on-failure
     ports:
-      - 8761:8761
+      - "8761:8761"
   coupon-app:
     build: ./couponService
     container_name: coupon-app
     restart: on-failure
     ports:
-      - 9091:9091
+      - "9091:9091"
     depends_on:
       - mysql
       - registry
