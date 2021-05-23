@@ -10,7 +10,7 @@
     <modules>
         <module>registry</module>
         <module>couponService</module>
-        <module>productService</module>
+        <module>productservice</module>
         <module>gateway</module>
     </modules>
 
