@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      routes:
+        - id: couponservice
+          uri: lb://COUPONSERVICE
+          predicates:
+            - Path=/couponapi/coupons/**
+        - id: productservice
+          uri: lb://PRODUCTSERVICE
+          predicates:
+            - Path=/productapi/products/**
+
+server:
+  port: 8080
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
